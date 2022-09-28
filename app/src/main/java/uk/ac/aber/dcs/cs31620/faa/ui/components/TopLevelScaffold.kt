@@ -1,7 +1,6 @@
 package uk.ac.aber.dcs.cs31620.faa.ui.components
 
 import androidx.compose.foundation.layout.PaddingValues
-//import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -24,7 +23,6 @@ fun TopLevelScaffold(
     floatingActionButton: @Composable () -> Unit = { },
     snackbarContent: @Composable (SnackbarData) -> Unit = {},
     coroutineScope: CoroutineScope,
-    //scaffoldState: ScaffoldState,
     snackbarHostState: SnackbarHostState? = null,
     pageContent: @Composable (innerPadding: PaddingValues) -> Unit = {}
 ) {
@@ -41,7 +39,6 @@ fun TopLevelScaffold(
         }
     ) {
         Scaffold(
-            //scaffoldState = scaffoldState,
             topBar = {
                 MainPageTopAppBar(onClick = {
                     coroutineScope.launch {
@@ -56,22 +53,8 @@ fun TopLevelScaffold(
             bottomBar = {
                 MainPageNavigationBar(navController)
             },
-            /*drawerContent = {
-            MainPageNavigationDrawer(
-                navController,
-                closeDrawer = {
-                    coroutineScope.launch {
-                        // We know it will be open
-                        scaffoldState.drawerState.close()
-                    }
-                }
-            )
-        },*/
             floatingActionButton = floatingActionButton,
             snackbarHost = {
-                /*SnackbarHost(hostState = scaffoldState.snackbarHostState) { data ->
-                snackbarContent(data)
-            }*/
                 snackbarHostState?.let {
                     SnackbarHost(hostState = snackbarHostState) { data ->
                         snackbarContent(data)
