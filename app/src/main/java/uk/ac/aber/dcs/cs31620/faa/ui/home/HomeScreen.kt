@@ -32,12 +32,10 @@ import kotlin.random.Random
 fun HomeScreen(navController: NavHostController) {
 
     val coroutineScope = rememberCoroutineScope()
-    //val scaffoldState = rememberScaffoldState()
 
     TopLevelScaffold(
         navController = navController,
         coroutineScope = coroutineScope,
-        //scaffoldState = scaffoldState
     ) { innerPadding ->
         Surface(
             modifier = Modifier
