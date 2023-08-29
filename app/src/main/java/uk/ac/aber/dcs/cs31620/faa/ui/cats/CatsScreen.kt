@@ -100,7 +100,7 @@ fun CatsScreen(
             var selectedBreed by rememberSaveable { mutableStateOf(breedList[0]) }
             var selectedGender by rememberSaveable { mutableStateOf(genderList[0]) }
             var selectedAge by rememberSaveable { mutableStateOf(ageList[0]) }
-            var proximity by rememberSaveable { mutableStateOf(10) }
+            var proximity by rememberSaveable { mutableIntStateOf(10) }
 
             val context = LocalContext.current
 
